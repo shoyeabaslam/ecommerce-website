@@ -1,0 +1,76 @@
+
+.navBarBackgroundImg{
+  /* background-image: url('../public/images/navbarimg.jpg'); */
+  background-color: #192F41;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+
+/* product title */
+.product_title_class{
+  font-size: 14px;
+  margin: 0;
+  /* transition: 0.3s ease; */
+  font-weight: 500;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+.categories_subtext {
+  width: 100%;
+
+  margin-left: 10px;
+}
+
+.categories_wrapper:hover .categories_subtext {
+  background-color: #ec2657;
+  color: white;
+  
+}
+
+.categories_image {
+  transition: transform 0.2s ease-in-out;
+}
+.categories_wrapper:hover .categories_image {
+  rotate: 4deg;
+  transform: scale(1.2);
+}
+
+.side_banner_wrapper:hover .product_offer_img {
+  transform: scale(1.2);
+}
+
+
+.prodcut_offer_img_offset{
+  width: 100%;
+  height: 100%;
+  background: rgba(66, 66, 66, 0.3);
+}
+.product_offer_img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+
+/* product section */
+
+.product_image_class{
+  transition: transform 0.2s ease-in-out;
+}
+
+.product_wrapper_class:hover .product_image_class{
+  transform: scale(1.2);
+}

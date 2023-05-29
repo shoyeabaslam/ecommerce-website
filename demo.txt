@@ -1,0 +1,26 @@
+{`${streetAddress}, ${apartmentAddress}, ${city}, ${pincode}, ${state}, ${country}`}
+
+  {
+      name: "images",
+      type: "array",
+      title: "Images",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "images",
+              type: "image",
+              title: "Images",
+              options: { hotspot: true },
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "offerUrl",
+              type: "string",
+              title: "Offer Url",
+            },
+          ],
+        },
+      ],
+    },
