@@ -28,7 +28,7 @@ module.exports = {
       "lightredhover":'#FF0040',
       "primaryProductCartColor":'#F9FFF6',
       "maron":'#173334',
-      "navbar-color":'#B5F3D4',
+      "navbar-color":'#002e54',
       "customrosered":'#ff5a83',
     },
     

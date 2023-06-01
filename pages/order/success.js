@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import successImage from '../../public/images/fireworks.png'
+import Image from "next/image";
+import Head from "next/head";
 const Success = () => {
     const router = useRouter()
     useEffect(() => {
@@ -23,9 +26,10 @@ const Success = () => {
     }, [router]);
   return (
     <div className="p-12">
+      <Head><title>{`Order Success - JExprez`}</title></Head>
       <div className="flex flex-col items-center">
         <div className="w-20">
-          <img src="http://localhost:3000/images/fireworks.png" />
+          <Image src={successImage} width={500} height={500} alt="success" />
         </div>
         <p className="font-Roboto font-bold text-xl sm:text-2xl pt-5 px-4">Your order is complete!</p>
         <p className="font-Roboto font-bold text-sm text-maron pt-1">Order id : #<span>{router.query.orderId}</span></p>

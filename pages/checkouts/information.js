@@ -8,7 +8,7 @@ import { getAllProductsById } from "@/sanity/sanity-utils";
 import { AiFillMinusSquare, AiFillPlusSquare,AiOutlineLoading3Quarters } from "react-icons/ai";
 import Link from "next/link";
 import axios from "axios";
-
+import Head from "next/head";
 const Information = ({
   product,
   cartItems,
@@ -61,9 +61,7 @@ const Information = ({
     try {
       if(pincode!=''){
         const res = await axios.get(`https://api.postalpincode.in/pincode/${pincode}`);
-        console.log(res.data[0])
        if(res.data[0].Status == "Success"){
-          toast.success('Pincode Is Serviceble')
           setState(res.data[0].PostOffice[0].State)
           console.log(res.data[0].PostOffice[0].State)
           setCity(res.data[0].PostOffice[0].District)
@@ -112,7 +110,7 @@ const Information = ({
         productPrice: product[0].price,
       });
     }
-  }, []);
+  }, [product, router.query.type, session, setApartmentAddress, setBuyNowDetails, setCity, setEmailId, setNameEnter, setPhoneNumber, setPincode, setState, setStreetAddress]);
 
   const IncQuantBProduct = () => {
     const { productPrice, ...updatedDetails } = buyNowDetails;
@@ -210,6 +208,7 @@ const Information = ({
   };
   return (
     <div className="py-8 px-2 ">
+      <Head><title>{`Checkout Information - JExprez`}</title></Head>
       <div className="flex flex-col lg:flex-row justify-center">
         {/* shipping address */}
         <div className="flex-1 flex flex-col space-y-8 items-center font-Roboto lg:border-r border-gray-500 ">
@@ -238,7 +237,7 @@ const Information = ({
 
           </div>
 
-          <div className="w-[300px] sm:w-[450px] flex justify-start font-Roboto text-black text-xl">
+          <div className="w-[300px] sm:w-[450px] flex justify-start pt-4 font-Roboto text-black text-xl">
             <h3>Shipping Address</h3>
           </div>
           <div
@@ -330,7 +329,7 @@ const Information = ({
               onChange={(e) => {
                 setCountry(e.target.value);
               }}
-              className="px-4 outline-none rounded-lg w-full h-full"
+              className="px-4 bg-white outline-none rounded-lg w-full h-full"
             >
               <option value={country}>India</option>
             </select>

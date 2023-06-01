@@ -8,7 +8,7 @@ import Link from "next/link";
 import { getAllProductsById } from "@/sanity/sanity-utils";
 import axios from "axios";
 import { Oval } from "react-loader-spinner";
-
+import Head from "next/head";
 const Shipping = ({
   cartItems,
   totalPriceOfCartItems,
@@ -148,19 +148,22 @@ const Shipping = ({
           toast.error("Sorry! No Items Are Selected");
         }
       } else if (
-        emailId === "" &&
-        cartItems.length == 0 &&
-        phoneNumber === "" &&
-        streetAddress === "" &&
-        apartmentAddress === "" &&
+        emailId === "" ||
+        cartItems.length == 0 ||
+        phoneNumber === "" ||
+        streetAddress === "" ||
+        apartmentAddress === "" ||
         pincode === ""
       ) {
-        toast.error("Sorry! missing fields go back...");
+        toast.error("Sorry! missing fields go back");
       }
     }
     if (router.query.type === "buy-now") {
       if(Object.keys(buyNowDetails).length!=0){
         sendBuyNowItemToDb()
+      }
+      else if(emailId === '' || streetAddress === '' || apartmentAddress === '' || pincode ===''){
+        toast.error("Sorry! missing fields go back");
       }
       else{
         toast.error("Sorry! No Items Are Selected");
@@ -170,6 +173,7 @@ const Shipping = ({
 
   return (
     <div>
+       <Head><title>{`Proceed to Checkout - JExprez`}</title></Head>
       {isLoading && (
         <div
           style={{
@@ -434,7 +438,9 @@ const Shipping = ({
 export default Shipping;
 
 export async function getServerSideProps(context) {
-  const generateOrderId = Math.floor(Date.now() * Math.random());
+  const timestamp = Date.now();
+  const randomDigits = Math.floor(Math.random() * 10000);
+  const generateOrderId = `${timestamp}-${randomDigits}`;
   return {
     props: { generateOrderId },
   };

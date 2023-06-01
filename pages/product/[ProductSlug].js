@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { getAllProductsById, getTopProducts } from "@/sanity/sanity-utils";
 import { BsLightningFill, BsFillCaretDownFill, BsShop } from "react-icons/bs";
 import { HiShoppingCart, HiLightBulb } from "react-icons/hi";
+import {AiOutlineLoading3Quarters} from 'react-icons/ai'
 import { MdLocalShipping } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,7 +16,7 @@ import { useSession } from "next-auth/react";
 // redux
 import { MyContext } from "@/context/MyContext";
 import axios from "axios";
-
+import Head from "next/head";
 
 const Pages2 = ({ productOverView, imgArray ,topProducts,addToCart,toast}) => {
   const router = useRouter();
@@ -26,9 +27,11 @@ const Pages2 = ({ productOverView, imgArray ,topProducts,addToCart,toast}) => {
   const {data: session} = useSession();
   const {setBuyNowDetails} = useContext(MyContext)
   const [pincode ,setPincode] = useState('')
+  const [isCheckingPincode,setIsCheckingPincode] = useState(false)
 
 
 const checkPincodeIsServicble = async ()=>{
+  setIsCheckingPincode(true)
   try {
     if(pincode!=''){
       const res = await axios.get(`https://api.postalpincode.in/pincode/${pincode}`);
@@ -44,8 +47,11 @@ const checkPincodeIsServicble = async ()=>{
     else{
       toast.warn('Enter Pincode')
     }
+  setIsCheckingPincode(false)
   } catch (error) {
     console.error(error)
+  setIsCheckingPincode(false)
+
   }
 }
 const handleBuyNow = ()=>{
@@ -80,6 +86,7 @@ const handleBuyNow = ()=>{
 
   return (
     <div className="text-gray-600 body-font overflow-hidden">
+      <Head><title>{`${productOverView[0].title} - JExprez`}</title></Head>
       <div className="flex justify-center lg:justify-start  flex-wrap p-8">
         <div className="flex flex-wrap flex-row sm:flex-col justify-center sm:justify-start items-center">
           {imgArray.map((imgUrl, index) => (
@@ -148,8 +155,8 @@ const handleBuyNow = ()=>{
                   className="outline-none border-b border-lightred p-1 rounded"
                   placeholder="Enter Delivery Pincode"
                 ></input>
-                <button onClick={checkPincodeIsServicble} className=" p-1  w-28 rounded ml-4  bg-lightred hover:bg-lightredhover text-white">
-                  Check
+                <button onClick={checkPincodeIsServicble} className="p-1 flex items-center justify-center  w-28 rounded ml-4  bg-lightred hover:bg-lightredhover text-white">
+                  {!isCheckingPincode ? 'Check' : <AiOutlineLoading3Quarters className=" text-xl font-bold animate-spin"/>}
                 </button>
               </div>
             

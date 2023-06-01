@@ -43,34 +43,36 @@ const TopPrducts = ({
   ];
   return (
     <div
-      className={`${styles.product_wrapper_class} w-[10rem] mt-4 h-[17rem] sm:w-[16rem] sm:m-4 lg:m-8 sm:h-[24rem] shadow-lg rounded-lg border p-2 sm:py-4 relative overflow-hidden flex items-center flex-col cursor-pointer justify-evenly bg-white`}
+      className={`${styles.product_wrapper_class}  w-[10rem] mt-4 h-[16rem] sm:w-[14rem] sm:m-4 lg:m-8 sm:h-[22rem] shadow-lg shadow-gray-300 rounded-lg sm:rounded-xl border px-2 py-2 sm:py-4 relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
     >
-      <Link href={`/product/${slug}?id=${id}`}>
+     <Link href={`/product/${slug}?id=${id}`}>
         <div>
-          <div className=" w-[9rem] h-[12rem] sm:w-[14rem] sm:h-[17rem] rounded-md mt-0 sm:mt-2  overflow-hidden ">
+          <div className="  w-[8rem] h-[10rem] mr-auto sm:w-[12rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden  ">
             {/* image */}
             <Image
-              className={`${styles.product_image_class} object-cover  h-[12rem] sm:h-[17rem] mr-auto ml-auto`}
+              className={`${styles.product_image_class} rounded-md object-contain h-[10rem] sm:h-[14rem]`}
               src={imageUrl}
               width={500}
               height={500}
               alt="top Prodcuts"
             />
           </div>
+        </div>
           {/* title */}
-          <div className="mt-2">
-            <h4 className=" text-xs truncate text-ellipsis sm:text-sm capitalize sm:my-0 font-Roboto text-black w-32 sm:w-52 font-bold break-words text-center">
+          <div className="mt-2 mb-1">
+            <h4 className=" text-xs truncate  text-ellipsis sm:text-sm capitalize  font-Roboto text-black w-[9rem] sm:w-[14rem] font-bold break-words text-center">
               {title}
             </h4>
           </div>
-        </div>
       </Link>
+      
       <div>
         {/* price */}
-        <div className="flex w-[8rem] sm:w-[10rem] items-center h-[40px] justify-between font-Roboto">
-          <p className="font-bold  text-green-600 ">₹{price}</p>
-          <strike className=" text-red-500 ">₹{actualPrice}</strike>
-          <button
+        <div className="flex w-[9rem] sm:w-[12rem] items-center justify-around font-Robot0 my-1">
+          <p className="text-green-600 text-sm sm:text-base font-bold">₹{price}</p>
+          <strike className=" text-sm sm:text-base text-red-500 ">₹{actualPrice}</strike>
+        </div>
+        <button
             onClick={() => {
               stock === "available" &&
                 (addToCart({
@@ -80,18 +82,21 @@ const TopPrducts = ({
                   productPrice: price,
                   imageUrl: imageUrl,
                 }),
-                toast.success(`Item added to cart successfully!`));
+                toast.success(`Item added to cart successfully!`,{
+                  position: toast.POSITION.BOTTOM_CENTER,
+                  icon: ({theme, type}) =>  <IoMdCart/>
+                }));
             }}
-            className={`flex items-center justify-center text-xl sm:text-2xl  rounded-full ${
+            className={`w-full sm:text-sm py-1 text-xs font-Roboto rounded-lg  ${
               stock == "outOfStock"
-                ? "text-gray-500 "
-                : "text-maron hover:text-lightred"
+                ? "text-gray-400 border "
+                : "hover:bg-lightredhover bg-lightred text-white"
             }`}
           >
-            <IoMdCart />
+            Add To Cart
           </button>
-        </div>
       </div>
+
       <div
         className={`p-1 text-center top-[15px] -right-[32px] rotate-45 sm:top-[30px] sm:-right-[34px] text-white ${
           popularTag == "Hot Deal" && color_array[3]
@@ -106,8 +111,8 @@ const TopPrducts = ({
         </p>
       </div>
       {stock == "outOfStock" && (
-        <div className="absolute z-10 w-full  bg-gray-400 top-[50%] bg-transparen">
-          <p className="text-sm sm:text-base text-center bg-red-400 text-white font-Roboto">
+        <div className="absolute z-10 w-full  top-[50%] rounded-xl">
+          <p className="text-base text-center bg-red-400 rounded-sm  text-white font-Roboto">
             Out Of Stock
           </p>
         </div>
@@ -134,34 +139,35 @@ const DealOfTheDay = ({
   };
   return (
     <div
-      className={`${styles.product_wrapper_class} w-[10rem] mt-4 h-[17rem] sm:w-[16rem] sm:m-4 lg:m-8 sm:h-[24rem] shadow-lg shadow-gray-300 rounded-lg sm:rounded-xl border px-2 py-2 sm:py-4 relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
+      className={`${styles.product_wrapper_class} w-[10rem] mt-4 h-[16rem] sm:w-[14rem] sm:m-4 lg:m-8 sm:h-[22rem] shadow-lg shadow-gray-300 rounded-lg sm:rounded-xl border px-2 py-2 sm:py-4 relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
     >
       <Link href={`/product/${slug}?id=${id}`}>
         <div>
-          <div className=" w-[9rem] h-[12rem] sm:w-[14rem] sm:h-[16rem] rounded-md mt-0 sm:mt-4 relative overflow-hidden ">
+          <div className=" w-[8rem] h-[10rem] mr-auto sm:w-[12rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden ">
             {/* image */}
             <Image
-              className={`${styles.product_image_class} object-cover h-[12rem] sm:h-[16rem] mr-auto ml-auto`}
+              className={`${styles.product_image_class} object-contain h-[10rem] sm:h-[14rem]`}
               src={imageUrl}
               width={500}
               height={500}
               alt="top Prodcuts"
             />
           </div>
+        </div>
           {/* title */}
-          <div className="mt-2">
-            <h4 className=" text-xs truncate text-ellipsis sm:text-sm capitalize sm:my-0 font-Roboto text-maron w-32 sm:w-52 font-bold break-words text-center">
+          <div className="mt-2 mb-1">
+            <h4 className=" text-xs truncate  text-ellipsis sm:text-sm capitalize  font-Roboto text-black w-[9rem] sm:w-[14rem] font-bold break-words text-center">
               {title}
             </h4>
           </div>
-        </div>
       </Link>
       <div>
         {/* price */}
-        <div className="flex w-[8rem] sm:w-[10rem] items-center h-[40px] justify-between font-Roboto">
-          <p className="text-green-600  font-bold">₹{price}</p>
-          <strike className=" text-red-500 ">₹{actualPrice}</strike>
-          <button
+        <div className="flex w-[9rem] sm:w-[12rem] items-center justify-around font-Robot0 my-1">
+          <p className="text-green-600 text-sm sm:text-base font-bold">₹{price}</p>
+          <strike className=" text-sm sm:text-base text-red-500 ">₹{actualPrice}</strike>
+        </div>
+        <button
             onClick={() => {
               stock === "available" &&
                 (addToCart({
@@ -171,20 +177,22 @@ const DealOfTheDay = ({
                   productPrice: price,
                   imageUrl: imageUrl,
                 }),
-                toast.success(`Item added to cart successfully!`));
+                toast.success(`Item added to cart successfully!`,{
+                  position: toast.POSITION.BOTTOM_CENTER,
+                  icon: ({theme, type}) =>  <IoMdCart/>
+                }));
             }}
-            className={`z-10 flex items-center  justify-center text-xl sm:text-2xl ${
+            className={`w-full sm:text-sm py-1 text-xs font-Roboto rounded-lg  ${
               stock == "outOfStock"
-                ? "text-gray-400 "
-                : "text-maron hover:text-lightredhover"
+                ? "text-gray-400 border "
+                : "hover:bg-lightredhover bg-lightred text-white"
             }`}
           >
-            <IoMdCart className="bg-opacity-0" />
+            Add To Cart
           </button>
-        </div>
       </div>
       <div
-        className={`p-1 text-center top-0 right-0 text-white bg-lightred absolute z-[2] w-[45px] sm:w-[120px] rounded-bl-xl`}
+        className={`p-1 text-center top-0 right-0 text-white bg-lightred absolute z-[2] w-[45px] sm:w-[100px] rounded-bl-xl`}
       >
         <p className="text-[9px] sm:text-sm right-0 font-Roboto">
           {Math.ceil((price / actualPrice) * 100)}% Off
@@ -214,7 +222,7 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>hello</title>
+        <title>Welcome to JExprez - Your One-Stop Online Shopping Destination </title>
       </Head>
       <main className={`p-1`}>
         <div className="home_container lg:flex lg:justify-center items-center lg:px-4 lg:mt-2">

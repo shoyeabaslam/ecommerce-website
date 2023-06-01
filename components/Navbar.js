@@ -60,7 +60,7 @@ const handleKeyDown = (e)=>{
 
   useEffect(() => {
     async function sendData() {
-      await setAccountDetails({
+      setAccountDetails({
         ...accountDetails,
         uName: session.user.name,
         uEmail: session.user.email,
@@ -75,7 +75,6 @@ const handleKeyDown = (e)=>{
             data: accountDetails,
           });
 
-          console.log("Data sent successfully:", response.data);
           setIsDataSendSuccessfully(true);
         }
         // Handle success (e.g., show a success message to the user)
@@ -94,6 +93,7 @@ const handleKeyDown = (e)=>{
       }
       // Perform actions for authenticated users here
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session]);
 
   const searchProduct = (e) => {
@@ -122,7 +122,7 @@ const handleKeyDown = (e)=>{
               type="text"
               onKeyDown={handleKeyDown}
             />
-            <button  onClick={(e)=>searchProduct(e)} className="ml-1 md:ml-2  w-[50px]   text-white">
+            <button  onClick={(e)=>searchProduct(e)} className="ml-1 md:ml-2  w-[50px]   text-maron">
               <HiOutlineSearch className="text-xl font-bold mr-auto ml-auto" />
             </button>
           </div>
@@ -149,7 +149,7 @@ const handleKeyDown = (e)=>{
                     >
                       {/* setting profile  */}
                       <Image
-                        className="rounded-full"
+                        className="rounded-full border-white border-2 "
                         src={session.user.image}
                         alt={"User"}
                         width={500}
@@ -235,8 +235,8 @@ const handleKeyDown = (e)=>{
         {
           (cartItems.length == 0) && (
            <div className="flex font-Roboto flex-col  items-center mt-10">
-             <div className="text-8xl text-white"><HiShoppingBag/></div>
-             <p className="text-white mt-2">Your Cart Is Empty!</p>
+             <div className="text-8xl text-maron"><HiShoppingBag/></div>
+             <p className="text-maron mt-2 font-bold">Your Cart Is Empty!</p>
              <Link href={"/"} onClick={cartOpenFunction}><button className="mt-2 px-2 py-1 bg-lightred text-white rounded-lg hover:bg-lightredhover">Continue Shopping</button></Link>
            </div>
           )

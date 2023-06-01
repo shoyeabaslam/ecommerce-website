@@ -7,7 +7,7 @@ import LoadingBar from "react-top-loading-bar";
 import { SessionProvider } from "next-auth/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import Head from "next/head";
 import { MyContextProvider } from "../context/MyContext";
 
 export default function App({ Component, pageProps, session }) {
@@ -119,13 +119,16 @@ export default function App({ Component, pageProps, session }) {
       console.error(error);
       localStorage.removeItem('cart');
     }
-  }, []);
+  }, [router.events]);
   return (
     <>
+     <Head>
+        <title>JExprez</title>
+      </Head>
       <SessionProvider session={session}>
       <MyContextProvider>
         <LoadingBar
-          color="#EC2657"
+          color="#ff0000"
           progress={progress}
           onLoaderFinished={() => setProgress(0)}
           height={3}
