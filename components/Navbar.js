@@ -167,7 +167,7 @@ const handleKeyDown = (e)=>{
                           className="absolute w-[200px] top-7  -left-24 "
                         >
                           <ul className="text-sm p-4 mt-4  bg-white text-lightred shadow-xl rounded-md">
-                            <Link href={"/"}>
+                            <Link href={"/trackorder"}>
                               <li className="p-2 hover:bg-lightred hover:text-white rounded-md">
                                 Track Your Order
                               </li>

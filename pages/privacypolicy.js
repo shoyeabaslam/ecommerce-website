@@ -43,7 +43,7 @@ const PrivacyPolicyPage = () => {
         <p className="mb-4">
           We implement industry-standard security measures to protect your
           personal information from unauthorized access, alteration, or
-          disclosure. We use secure socket layer (SSL) technology to encrypt
+          disclosure. We use secure socket layer SSL technology to encrypt
           sensitive information during transmission.
         </p>
 

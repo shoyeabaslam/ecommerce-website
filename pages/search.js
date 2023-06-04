@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import { IoMdCart } from "react-icons/io";
-import styles from "../styles/home.module.css"
+import styles2 from "../styles/home.module.css"
 import rejected from '../public/images/rejected.png'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -12,14 +12,14 @@ import Head from 'next/head';
 const Product = ({ title,id,slug, price, imageUrl, actualprice,stock,addToCart,toast}) => {
   return (
     <div
-    className={`${styles.product_wrapper_class}  w-[10rem] mt-4 h-[16rem] sm:w-[14rem]  lg:m-8 sm:h-[21rem] shadow-lg shadow-gray-300 rounded-lg sm:rounded-xl border px-2 py-2  relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
+    className={`${styles2.product_wrapper_class}  w-[10rem] mt-4 h-[16rem] sm:w-[14rem]  lg:m-8 sm:h-[21rem] shadow-lg shadow-gray-300 rounded-lg sm:rounded-xl border px-2 py-2  relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
     >
      <Link href={`/product/${slug}?id=${id}`}>
      <div>
       <div className=" w-[9rem] h-[10rem] mr-auto sm:w-[13rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden ">
         {/* image */}
         <Image
-          className={`${styles.product_image_class} object-cover h-[10rem] rounded-md sm:h-[14rem]`}
+          className={`${styles2.product_image_class} object-cover h-[10rem] rounded-md sm:h-[14rem]`}
           src={imageUrl}
           width={500}
           height={500}

@@ -1,5 +1,5 @@
 import { getAllProductsImages, getOrdersByEmail } from "@/sanity/sanity-utils";
-import { getSession, useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -80,6 +80,7 @@ export async function getServerSideProps(context) {
   if (session) {
     email = session.user.email;
   }
+  console.log(session);
   const myOrders = await getOrdersByEmail(email);
   return {
     props: {
