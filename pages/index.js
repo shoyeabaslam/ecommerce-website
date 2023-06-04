@@ -1,17 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import {RiLuggageCartLine} from 'react-icons/ri'
+import {TbTruckDelivery} from 'react-icons/tb'
+import {BiMap} from 'react-icons/bi'
+import {MdOutlineLocalOffer} from 'react-icons/md'
 import {
   getAllBannerImages,
   getBottomBannerImages,
   getCategories,
   getDealOfTheDay,
   getTopProducts,
-  urlFor,
 } from "@/sanity/sanity-utils";
 
 // react icons
-import { AiFillShopping } from "react-icons/ai";
 import { IoMdCart } from "react-icons/io";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,9 +21,7 @@ import SwiperCore, { Autoplay } from "swiper";
 import styles from "../styles/home.module.css";
 // Import Swiper styles
 import "swiper/css";
-import products from "@/sanity/schemas/products-schema";
 import { useRouter } from "next/router";
-import { toast } from "react-toastify";
 
 const TopPrducts = ({
   id,
@@ -43,11 +43,11 @@ const TopPrducts = ({
   ];
   return (
     <div
-      className={`${styles.product_wrapper_class}  w-[10rem] mt-4 h-[16rem] sm:w-[14rem] sm:m-4 lg:m-8 sm:h-[22rem] shadow-lg shadow-gray-300 rounded-lg sm:rounded-xl border px-2 py-2 sm:py-4 relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
+      className={`${styles.product_wrapper_class}  w-[10rem] mt-4 h-[16rem] sm:w-[14rem] sm:m-4 lg:m-8 sm:h-[22rem] shadow-shadow2 rounded-lg sm:rounded-xl border px-2 py-2 sm:py-4 relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
     >
      <Link href={`/product/${slug}?id=${id}`}>
         <div>
-          <div className="  w-[8rem] h-[10rem] mr-auto sm:w-[12rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden  ">
+          <div className="  w-[9rem] h-[10rem] mr-auto sm:w-[12rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden  ">
             {/* image */}
             <Image
               className={`${styles.product_image_class} rounded-md object-contain h-[10rem] sm:h-[14rem]`}
@@ -112,7 +112,7 @@ const TopPrducts = ({
       </div>
       {stock == "outOfStock" && (
         <div className="absolute z-10 w-full  top-[50%] rounded-xl">
-          <p className="text-base text-center bg-red-400 rounded-sm  text-white font-Roboto">
+          <p className="text-sm text-center bg-red-400 rounded-sm  text-white font-Roboto">
             Out Of Stock
           </p>
         </div>
@@ -139,11 +139,11 @@ const DealOfTheDay = ({
   };
   return (
     <div
-      className={`${styles.product_wrapper_class} w-[10rem] mt-4 h-[16rem] sm:w-[14rem] sm:m-4 lg:m-8 sm:h-[22rem] shadow-lg shadow-gray-300 rounded-lg sm:rounded-xl border px-2 py-2 sm:py-4 relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
+      className={`${styles.product_wrapper_class} w-[10rem] mt-4 h-[16rem] sm:w-[14rem] sm:m-4 lg:m-8 sm:h-[22rem] shadow-shadow2 rounded-lg sm:rounded-xl border px-2 py-2 sm:py-4 relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
     >
       <Link href={`/product/${slug}?id=${id}`}>
         <div>
-          <div className=" w-[8rem] h-[10rem] mr-auto sm:w-[12rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden ">
+          <div className=" w-[9rem] h-[10rem] mr-auto sm:w-[12rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden ">
             {/* image */}
             <Image
               className={`${styles.product_image_class} object-contain h-[10rem] sm:h-[14rem]`}
@@ -200,7 +200,7 @@ const DealOfTheDay = ({
       </div>
       {stock == "outOfStock" && (
         <div className="absolute z-10 w-full  bg-gray-400 top-[50%] bg-transparen">
-          <p className="text-sm sm:text-base text-center bg-red-400 text-white font-Roboto">
+          <p className="text-sm text-center bg-red-400 text-white font-Roboto">
             Out Of Stock
           </p>
         </div>
@@ -222,7 +222,10 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>Welcome to JExprez - Your One-Stop Online Shopping Destination </title>
+        <title>
+          Welcome to JExprez - Your One-Stop Online Shopping Destination
+        </title>
+       
       </Head>
       <main className={`p-1`}>
         <div className="home_container lg:flex lg:justify-center items-center lg:px-4 lg:mt-2">
@@ -247,7 +250,7 @@ export default function Home({
             </Swiper>
           </div>
         </div>
-        {/* -------------------------------------------------------------------- */}
+        {/* ---------------------------section 2----------------------------------------- */}
         <div className="px-2 sm:px-10">
           {/* ----------Category section ----------------------*/}
           <div className=" category_container flex flex-col items-center w-[100%] mt-5">
@@ -318,21 +321,35 @@ export default function Home({
             </div>
           </div>
 
-{/* ------------------------------------------------------------------------------------------ */}
+          {/* ------------------------------------------------------------------------------------------ */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-            {
-              bottomBanner.map((image)=>(
-                <div key={image._id} className="bg-gray-200 h-[160px] md:h-[220px] relative rounded-lg">
-                <Image className="h-[160px] rounded-lg object-cover object-center w-full md:h-[220px]" src={image.bannerImage} width={500} height={500} alt="bottom banner image"/>
-                <div style={{backgroundColor:'rgba(0,0,0,0.2)'}} className="absolute font-Roboto right-0 left-0 top-0 bottom-0 flex flex-col items-end justify-center p-6">
-                  <p className=" font-bold text-sm sm:text-2xl text-white py-4">{image.bannerTitle}</p>
-                  <Link href={image.bannerURL}><butto className='bg-lightred px-8 p-1 text-white rounded-lg my-2 cursor-pointer'>Shop</butto></Link>
+            {bottomBanner.map((image) => (
+              <div
+                key={image._id}
+                className="bg-gray-200 h-[160px] md:h-[220px] relative rounded-lg"
+              >
+                <Image
+                  className="h-[160px] rounded-lg object-cover object-center w-full md:h-[220px]"
+                  src={image.bannerImage}
+                  width={500}
+                  height={500}
+                  alt="bottom banner image"
+                />
+                <div
+                  style={{ backgroundColor: "rgba(0,0,0,0.2)" }}
+                  className="absolute font-Roboto right-0 left-0 top-0 bottom-0 flex flex-col items-end justify-center p-6"
+                >
+                  <p className=" font-bold text-sm sm:text-2xl text-white py-4">
+                    {image.bannerTitle}
+                  </p>
+                  <Link href={image.bannerURL}>
+                    <butto className="bg-lightred px-8 p-1 text-white rounded-lg my-2 cursor-pointer">
+                      Shop
+                    </butto>
+                  </Link>
                 </div>
               </div>
-              ))
-            }
-          
-           
+            ))}
           </div>
 
           {/* ------------------------Top Product Section-------------- */}
@@ -359,6 +376,29 @@ export default function Home({
                 />
               ))}
             </div>
+          </div>
+        </div>
+        {/* ---------------------------section 3------------------------------------------ */}
+        <div>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 px-4 sm:px-10 text-customrosered">
+            <div className=" rounded-lg h-[150px] shadow-shadow1 flex flex-col items-center justify-center font-Roboto">
+              <div className="bg-rose-200 p-3 rounded-full"><RiLuggageCartLine className="text-3xl "/></div>
+              <p className="capitalize py-2  font-bold">premium quality product</p>
+            </div>
+            <div className=" rounded-lg h-[150px] shadow-shadow1 flex flex-col items-center justify-center font-Roboto">
+            <div className="bg-rose-200 p-3 rounded-full"><TbTruckDelivery className="text-3xl "/></div>
+              <p className="capitalize pt-2  font-bold">Express Delivery</p>
+              <p className="capitalize text-xs text-customrosered">Free Shipping for above ₹250</p>
+            </div>
+            <div className=" rounded-lg h-[150px] shadow-shadow1 flex flex-col items-center justify-center font-Roboto">
+            <div className="bg-rose-200 p-3 rounded-full"><BiMap className="text-3xl"/></div>
+              <p className="capitalize py-2  font-bold">Order Tracking</p>
+            </div>
+            <div className=" rounded-lg h-[150px] shadow-shadow1 flex flex-col items-center justify-center font-Roboto">
+            <div className="bg-rose-200 p-3 rounded-full"><MdOutlineLocalOffer className="text-3xl "/></div>
+              <p className="capitalize py-2  font-bold">Regular Discounts</p>
+            </div>
+           
           </div>
         </div>
       </main>

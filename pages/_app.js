@@ -124,6 +124,7 @@ export default function App({ Component, pageProps, session }) {
     <>
      <Head>
         <title>JExprez</title>
+        <link rel="shortcut icon" href="/images/logo.png" />
       </Head>
       <SessionProvider session={session}>
       <MyContextProvider>
@@ -175,3 +176,4 @@ export default function App({ Component, pageProps, session }) {
     </>
   );
 }
+

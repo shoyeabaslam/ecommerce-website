@@ -16,7 +16,7 @@ const Product = ({ title,id,slug, price, imageUrl, actualprice,stock,addToCart,t
     >
      <Link href={`/product/${slug}?id=${id}`}>
      <div>
-      <div className=" w-[8rem] h-[10rem] mr-auto sm:w-[13rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden ">
+      <div className=" w-[9rem] h-[10rem] mr-auto sm:w-[13rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden ">
         {/* image */}
         <Image
           className={`${styles.product_image_class} object-cover h-[10rem] rounded-md sm:h-[14rem]`}
@@ -67,7 +67,7 @@ const Product = ({ title,id,slug, price, imageUrl, actualprice,stock,addToCart,t
    
       {
           (stock == 'outOfStock') && (<div className="absolute z-10 w-full  bg-gray-400 top-[50%] bg-transparen">
-          <p className="text-sm sm:text-base text-center bg-red-400 text-white font-Roboto">Out Of Stock</p>
+          <p className="text-sm  text-center bg-red-400 text-white font-Roboto">Out Of Stock</p>
         </div>)
         }
     </div>

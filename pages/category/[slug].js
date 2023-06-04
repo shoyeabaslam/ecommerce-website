@@ -16,11 +16,11 @@ import Head from "next/head";
 const Product = ({ title,id,slug, price, imageUrl, actualprice,stock,addToCart,toast}) => {
   return (
     <div
-    className={`${styles.product_wrapper_class}  w-[10rem] mt-4 h-[16rem] sm:w-[14rem]  lg:m-8 sm:h-[21rem] shadow-lg shadow-gray-300 rounded-lg sm:rounded-xl border px-2 py-2  relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
+    className={`${styles.product_wrapper_class}  w-[10rem] mt-4 h-[16rem] sm:w-[14rem]  lg:m-8 sm:h-[21rem] shadow-shadow2  rounded-lg sm:rounded-xl border px-2 py-2  relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
     >
      <Link href={`/product/${slug}?id=${id}`}>
      <div>
-      <div className=" w-[8rem] h-[10rem] mr-auto sm:w-[13rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden ">
+      <div className=" w-[9rem] h-[10rem] mr-auto sm:w-[13rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden ">
         {/* image */}
         <Image
           className={`${styles.product_image_class} object-cover h-[10rem] rounded-md sm:h-[14rem]`}
@@ -71,7 +71,7 @@ const Product = ({ title,id,slug, price, imageUrl, actualprice,stock,addToCart,t
    
       {
           (stock == 'outOfStock') && (<div className="absolute z-10 w-full  bg-gray-400 top-[50%] bg-transparen">
-          <p className="text-sm sm:text-base text-center bg-red-400 text-white font-Roboto">Out Of Stock</p>
+          <p className="text-sm text-center bg-red-400 text-white font-Roboto">Out Of Stock</p>
         </div>)
         }
     </div>
@@ -80,7 +80,6 @@ const Product = ({ title,id,slug, price, imageUrl, actualprice,stock,addToCart,t
 
 const Pages = ({ products, subcategories, currPage, totalPages,addToCart,toast ,type}) => {
   const router = useRouter();
-  console.log(router.basePath)
  if(products.length!=0){
   return (
     <div className="p-4 relative">

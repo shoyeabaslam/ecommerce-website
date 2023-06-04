@@ -33,8 +33,9 @@ const Success = () => {
         </div>
         <p className="font-Roboto font-bold text-xl sm:text-2xl pt-5 px-4">Your order is complete!</p>
         <p className="font-Roboto font-bold text-sm text-maron pt-1">Order id : #<span>{router.query.orderId}</span></p>
-        <div className="flex font-Roboto text-sm"><button className="bg-lightred text-white rounded-lg hover:bg-lightredhover px-2
-        py-1 m-4">Track Your Order</button> <Link href={'/'}><button className="bg-lightred hover:bg-lightredhover text-white rounded-lg py-1 px-2 m-4">Continue Shopping</button></Link></div>
+        <div className="flex font-Roboto text-sm">
+          <Link href={'/trackorder'}><button className="bg-lightred text-white rounded-lg hover:bg-lightredhover px-2
+        py-1 m-4">Track Your Order</button></Link> <Link href={'/'}><button className="bg-lightred hover:bg-lightredhover text-white rounded-lg py-1 px-2 m-4">Continue Shopping</button></Link></div>
       </div>
     </div>
   );

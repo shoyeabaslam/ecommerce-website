@@ -43,13 +43,13 @@ const Shipping = ({
     const orderData = {
       customer: {
         cAddress: `${streetAddress}, ${apartmentAddress}, ${city}, ${pincode}, ${state}, ${country}`,
-        cEmail: emailId,
+        cEmail: emailId.toLowerCase(),
         cName: nameEntry,
         cPhone: phoneNumber,
       },
       items: modifiedArray,
       totalPrice: totalPriceOfCartItems,
-      orderStatus: "",
+      orderStatus: "Pending",
       payment: {
         _type: "payment",
         paymentMode: "Cash On Delivery",
@@ -86,13 +86,13 @@ const Shipping = ({
     const orderData = {
       customer: {
         cAddress: `${streetAddress}, ${apartmentAddress}, ${city}, ${pincode}, ${state}, ${country}`,
-        cEmail: emailId,
+        cEmail: emailId.toLowerCase(),
         cName: nameEntry,
         cPhone: phoneNumber,
       },
       items: [rest],
       totalPrice: rest.productPrice*rest.productQuantity,
-      orderStatus: "",
+      orderStatus: "Pending",
       payment: {
         _type: "payment",
         paymentMode: "Cash On Delivery",

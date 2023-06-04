@@ -10,7 +10,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/router";
-import navbarImg from '../public/images/navbarimg.jpg'
+import logo2 from '../public/images/logo2.png'
 import styles from '../styles/home.module.css'
 
 
@@ -105,10 +105,11 @@ const handleKeyDown = (e)=>{
   // usersign in funtion
 
   return (
-    <nav className={` ${styles.navBarBackgroundImg} w-full shadow-md sticky top-0 left-0 z-50 h-full py-4 sm:h-[65px]  flex items-center p-2`}>
+    <nav className={` ${styles.navBarBackgroundImg} w-full shadow-md sticky top-0 left-0 z-50 h-full py-2 sm:h-[65px]  flex items-center p-2`}>
       <div className="w-full flex flex-col sm:flex-row justify-between items-center  px-2 sm:px-10">
-        <div className="font-Eczar text-2xl text-white">
-          <p>Logo</p>
+        <div className="font-Eczar text-4xl sm:text-5xl text-white pb-2 flex justify-center items-center">
+          <p className=" text-lightred">J<span className="text-white text-2xl sm:text-3xl">Exprez</span></p>
+          <Image className="w-6 sm:w-8  ml-2" src={logo2} width={500} height={500} alt="JExprez"/>
         </div>
 
         <div className="flex my-1">
@@ -169,11 +170,6 @@ const handleKeyDown = (e)=>{
                             <Link href={"/"}>
                               <li className="p-2 hover:bg-lightred hover:text-white rounded-md">
                                 Track Your Order
-                              </li>
-                            </Link>
-                            <Link href={"/"}>
-                              <li className="p-2 hover:bg-lightred hover:text-white rounded-md">
-                                Account
                               </li>
                             </Link>
 

@@ -206,7 +206,7 @@ const handleBuyNow = ()=>{
                 }}
                 className="flex items-center text-white justify-between p-2  rounded"
               >
-                <BsShop /> Why Shop At Victoire?{" "}
+                <BsShop /> Why Shop At JExprez?{" "}
                 <BsFillCaretDownFill
                   className={`${
                     whyShopClicked ? "rotate-180" : "rotate-0"
@@ -215,13 +215,11 @@ const handleBuyNow = ()=>{
               </p>
               <div
                 className={`bg-lightred font-Roboto text-xs text-white overflow-hidden ${
-                  whyShopClicked ? "h-20" : "h-0"
+                  whyShopClicked ? "h-32" : "h-0"
                 } ease-in-out transition-all delay-100`}
               >
                 <p className="p-2">
-                  When you shop at Victoire, you`re supporting slow fashion and
-                  jewelry made in Canada. It`s thanks to you that these
-                  independent designers and makers can continue to thrive.
+                Unparalleled shopping. Top-notch products. Unbeatable prices. Trendy fashion to cutting-edge electronics. Enjoy seamless checkout, swift delivery. Exceptional service, prompt assistance. Exclusive discounts, maximize savings. Trust Jexprez for quality, affordability, impeccable service. Discover shopping perfection, where dreams come true.
                 </p>
               </div>
             </div>

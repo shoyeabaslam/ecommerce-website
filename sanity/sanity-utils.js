@@ -162,6 +162,7 @@ export async function isUserDuplicate(uEmail){
 export async function getOrders(){
   return createClient(config).fetch(
     groq`*[_type =='orders']{
+      _id,
       orderId,
       customer,
       items,
@@ -191,3 +192,29 @@ export async function searchItems(query) {
       }`
     );
   } 
+
+
+// ----------------------------------------------------
+
+export async function getAllProductsImages(){
+  return createClient(config).fetch(
+    groq`*[_type in ['topProducts', 'dealOfTheDay' ,'products']]{
+      _id,
+      "image":image.asset->url,
+    }`
+  )
+}
+
+// ----------------------------------------------------
+
+export async function getOrdersByEmail(email){
+  return createClient(config).fetch(
+    groq`*[_type == 'orders' && customer.cEmail == '${email}']{
+      _id,
+      orderId,
+      items,
+      totalPrice,
+      orderStatus,
+    }`
+  )
+}

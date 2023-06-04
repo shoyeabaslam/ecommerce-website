@@ -84,7 +84,7 @@ const orders = {
       "options": {
         "list": [
           { "title": "Processing", "value": "Processing" },
-          { "title": "Out for Delivery", "value": "OutForDelivery" },
+          { "title": "Out Of Delivery", "value": "OutOfDelivery" },
           { "title": "Delivered", "value": "Delivered" },
          
         ],
