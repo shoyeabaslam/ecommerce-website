@@ -1,7 +1,7 @@
 # JExprez eCommerce Website
 
 Welcome to JExprez, your ultimate destination for an exceptional eCommerce experience! Our website showcases high-quality products at unbeatable prices, making shopping a breeze. Whether you're looking for trendy fashion, cutting-edge electronics, or unique gifts, we've got you covered.
-
+https://jexprez.vercel.app/
 ## Why Choose JExprez?
 
 ✨ Unparalleled Shopping Experience: Discover a world of top-notch products carefully curated to meet your needs and desires. We strive to provide an unforgettable shopping journey, combining quality, affordability, and style.
