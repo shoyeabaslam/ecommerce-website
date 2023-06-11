@@ -8,7 +8,7 @@ https://jexprez.vercel.app/
 
 💼 Hire Me for Your Website: Impressed by the seamless design and functionality of JExprez? If you're looking to build your own eCommerce website, I'm available for hire! With my expertise in web development, I can bring your vision to life and create a stunning platform tailored to your business.
 
-📞 Contact Me: Interested in discussing your website project or have any questions? Feel free to reach out! You can contact me at [email protected] to discuss your requirements and explore the possibilities.
+📞 Contact Me: Interested in discussing your website project or have any questions? Feel free to reach out! You can contact me at [shoyeab07@gmail.com] to discuss your requirements and explore the possibilities.
 
 ## Technologies Used
 
@@ -38,7 +38,7 @@ JExprez leverages the following cutting-edge technologies to deliver an exceptio
 
 ## Get Started
 
-Ready to explore the world of JExprez? Simply visit our website at [www.jexprez.com](https://www.jexprez.com) to start your shopping journey. Don't forget to follow us on social media for the latest updates, exclusive offers, and exciting promotions!
+Ready to explore the world of JExprez? Simply visit our website at [www.jexprez.com](https://jexprez.vercel.app/) to start your shopping journey. Don't forget to follow us on social media for the latest updates, exclusive offers, and exciting promotions!
 
 ---
 
