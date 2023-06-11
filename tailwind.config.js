@@ -29,7 +29,7 @@ module.exports = {
       "lightredhover":'#FF0040',
       "primaryProductCartColor":'#F9FFF6',
       "maron":'#173334',
-      "navbar-color":'#002e54',
+      "navbar-color":'#001e36',
       "customrosered":'#ff5a83',
     },
     

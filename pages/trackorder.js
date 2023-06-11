@@ -10,6 +10,7 @@ const TrackOrder = ({ myOrders, productImages }) => {
     });
     return url[0]?.image; // Assuming you want to return the image property of the first matching item
   };
+  const ordPer = {'Pending':25,'Processing':50,'OutOfDelivery':75,'Delivered':100}
   return (
     <div>
       <div className="bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
@@ -24,23 +25,57 @@ const TrackOrder = ({ myOrders, productImages }) => {
                 <h2 className="text-lg font-medium text-gray-900">
                   Order ID: {items.orderId}
                 </h2>
-            <div className="flex items-center justify-start">
-                <div><p className="text-sm mr-2 text-gray-500">Order Status: </p></div>
-            <div className="relative w-[150px]">
-              {items.orderStatus === 'Pending' && <div className="flex w-[150px] items-center"><div className="animate-pulse bg-yellow-500 border border-black rounded-full ] w-4 h-4">.</div><p className="text-sm ml-2">Pending</p></div>}
-              {items.orderStatus === 'Processing' && <div className="flex w-[150px] items-center"><div className="animate-pulse bg-rose-500 border border-black rounded-full ] w-4 h-4">.</div><p className="text-sm ml-2">Processing</p></div>}
-              {items.orderStatus === 'OutOfDelivery' && <div className="flex w-[150px] items-center"><div className="animate-pulse bg-blue-500 border border-black rounded-full ] w-4 h-4">.</div><p className="text-sm ml-2">Out for Delivery</p></div>}
-              {items.orderStatus === 'Delivered' && <div className="flex w-[150px] items-center"><div className="animate-pulse bg-green-500 border border-black rounded-full ] w-4 h-4">.</div><p className="text-sm ml-2">Delivered</p></div>}
-              
-            </div>
-          </div>
-               
+                <div className="flex items-center justify-start">
+                  <div>
+                    <p className="text-sm mr-2 text-gray-500">Order Status: </p>
+                  </div>
+                  <div className="relative w-full flex justify-center items-center flex-1">
+                    <progress className="flex-1 h-2 mr-2" value={ordPer[`${items.orderStatus}`]} max={100}></progress>
+                    {items.orderStatus === "Pending" && (
+                      <div className="flex  items-center">
+                        <div className="animate-pulse bg-yellow-500 border border-black rounded-full ] w-4 h-4">
+                          .
+                        </div>
+                        <p className="text-sm ml-2">Pending</p>
+                      </div>
+                    )}
+                    {items.orderStatus === "Processing" && (
+                      <div className="flex  items-center">
+                        <div className="animate-pulse bg-rose-500 border border-black rounded-full ] w-4 h-4">
+                          .
+                        </div>
+                        <p className="text-sm ml-2">Processing</p>
+                      </div>
+                    )}
+                    {items.orderStatus === "OutOfDelivery" && (
+                      <div className="flex  items-center">
+                        <div className="animate-pulse bg-blue-500 border border-black rounded-full ] w-4 h-4">
+                          .
+                        </div>
+                        <p className="text-sm ml-2">Out for Delivery</p>
+                      </div>
+                    )}
+                    {items.orderStatus === "Delivered" && (
+                      <div className="flex  items-center">
+                        <div className="animate-pulse bg-green-700 border border-black rounded-full ] w-4 h-4">
+                          .
+                        </div>
+                        <p className="text-sm ml-2">Delivered</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
               <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
-                <h3 className="text-lg font-medium text-gray-900 py-6">Total Quantity : {items.items.length}</h3>
+                <h3 className="text-lg font-medium text-gray-900 py-6">
+                  Total Quantity : {items.items.length}
+                </h3>
                 <ul>
                   {items.items.map((details) => (
-                    <li className="flex items-center justify-between" key={details.productId}>
+                    <li
+                      className="flex items-center justify-between"
+                      key={details.productId}
+                    >
                       <Image
                         className="w-10 h-12 object-contain"
                         src={getProductUrl(details.productId)}
@@ -80,7 +115,6 @@ export async function getServerSideProps(context) {
   if (session) {
     email = session.user.email;
   }
-  console.log(session);
   const myOrders = await getOrdersByEmail(email);
   return {
     props: {

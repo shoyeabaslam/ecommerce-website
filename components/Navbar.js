@@ -23,13 +23,7 @@ const Navbar = ({ cartItems ,clearCart,quantityIncrement,quantityDecrement,remov
   const searchRef = useRef();
   const cartRef = useRef();
   const { data: session, status: status } = useSession(); //session
-  const [accountDetails, setAccountDetails] = useState({
-    _type: "usersAccount",
-    uName: "",
-    uEmail: "",
-  });
-  const [isDataSendSuccessfully, setIsDataSendSuccessfully] = useState(false);
-
+  
   const [searchQuery, setSearchQuery] = useState('');
 
 
@@ -58,44 +52,7 @@ const handleKeyDown = (e)=>{
 }
  
 
-  useEffect(() => {
-    async function sendData() {
-      setAccountDetails({
-        ...accountDetails,
-        uName: session.user.name,
-        uEmail: session.user.email,
-      });
-      try {
-        if (
-          accountDetails._type != "" &&
-          accountDetails.uName != "" &&
-          accountDetails.uEmail != ""
-        ) {
-          const response = await axios.post("/api/insertUserData", {
-            data: accountDetails,
-          });
-
-          setIsDataSendSuccessfully(true);
-        }
-        // Handle success (e.g., show a success message to the user)
-      } catch (error) {
-        if (error.request.status == 400) {
-          setIsDataSendSuccessfully(true);
-        } else {
-          console.error(error);
-        }
-        // Handle error (e.g., show an error message to the user)
-      }
-    }
-    if (session) {
-      if (!isDataSendSuccessfully) {
-        sendData();
-      }
-      // Perform actions for authenticated users here
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [session]);
-
+ 
   const searchProduct = (e) => {
     e.preventDefault();
     setSearchQuery('')

@@ -381,20 +381,20 @@ export default function Home({
         {/* ---------------------------section 3------------------------------------------ */}
         <div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 px-4 sm:px-10 text-customrosered">
-            <div className=" rounded-lg h-[150px] shadow-shadow1 flex flex-col items-center justify-center font-Roboto">
+            <div className=" rounded-lg h-[150px] shadow-md border flex flex-col items-center justify-center font-Roboto">
               <div className="bg-rose-200 p-3 rounded-full"><RiLuggageCartLine className="text-3xl "/></div>
               <p className="capitalize py-2  font-bold">premium quality product</p>
             </div>
-            <div className=" rounded-lg h-[150px] shadow-shadow1 flex flex-col items-center justify-center font-Roboto">
+            <div className=" rounded-lg h-[150px] shadow-md border flex flex-col items-center justify-center font-Roboto">
             <div className="bg-rose-200 p-3 rounded-full"><TbTruckDelivery className="text-3xl "/></div>
               <p className="capitalize pt-2  font-bold">Express Delivery</p>
               <p className="capitalize text-xs text-customrosered">Free Shipping for above ₹250</p>
             </div>
-            <div className=" rounded-lg h-[150px] shadow-shadow1 flex flex-col items-center justify-center font-Roboto">
+            <div className=" rounded-lg h-[150px] shadow-md border flex flex-col items-center justify-center font-Roboto">
             <div className="bg-rose-200 p-3 rounded-full"><BiMap className="text-3xl"/></div>
               <p className="capitalize py-2  font-bold">Order Tracking</p>
             </div>
-            <div className=" rounded-lg h-[150px] shadow-shadow1 flex flex-col items-center justify-center font-Roboto">
+            <div className=" rounded-lg h-[150px] shadow-md border flex flex-col items-center justify-center font-Roboto">
             <div className="bg-rose-200 p-3 rounded-full"><MdOutlineLocalOffer className="text-3xl "/></div>
               <p className="capitalize py-2  font-bold">Regular Discounts</p>
             </div>
