@@ -26,7 +26,7 @@ const Success = () => {
     }, [router]);
   return (
     <div className="p-12">
-      <Head><title>{`Order Success - JExprez`}</title></Head>
+      <Head><title>{`Order Success - Kashmirizon`}</title></Head>
       <div className="flex flex-col items-center">
         <div className="w-20">
           <Image src={successImage} width={500} height={500} alt="success" />

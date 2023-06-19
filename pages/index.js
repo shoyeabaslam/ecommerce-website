@@ -223,7 +223,7 @@ export default function Home({
     <>
       <Head>
         <title>
-          Welcome to JExprez - Your One-Stop Online Shopping Destination
+          Welcome to Kashmirizon - Your One-Stop Online Shopping Destination
         </title>
        
       </Head>

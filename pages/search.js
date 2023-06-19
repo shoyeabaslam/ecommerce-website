@@ -78,7 +78,7 @@ const Search = ({addToCart,toast,pSearch}) => {
  if(pSearch.length!=0){
   return (
     <div className='font-Roboto p-4'>
-      <Head> <title>{`Search - JExprez`}</title></Head>
+      <Head> <title>{`Search - Kashmirizon`}</title></Head>
       <p className='text-base text-center mt-2 sm:text-xl text-maron'>Your Search Results:</p>
       <div className='flex  flex-wrap justify-evenly sm:justify-center'>
           {
@@ -102,7 +102,7 @@ const Search = ({addToCart,toast,pSearch}) => {
  else{
   return(
     <div className="p-8 flex items-center space-y-4 flex-col">
-      <Head> <title>{`Search - JExprez`}</title></Head>
+      <Head> <title>{`Search - Kashmirizon`}</title></Head>
       <div><Image className="w-24 sm:w-28" src={rejected} width={500} height={500} alt="Product Available Soon!"/></div>
       <div>
         <p className="font-Alegreya  text-center text-2xl sm:text-3xl text-maron">Sorry! No Results Found</p>

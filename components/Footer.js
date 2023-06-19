@@ -2,6 +2,8 @@ import React from 'react'
 import logo from '../public/images/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
+import curveImg from '../public/images/curveImg.png'
+
 
 
 const Footer = () => {
@@ -9,10 +11,11 @@ const Footer = () => {
     <footer className="text-gray-600 body-font font-Roboto">
     <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
       <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-        <Link href={'/'} className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-          <Image className='w-24' src={logo} width={500} height={500} alt='logo'/>
-        </Link>
-        <p className="mt-2 text-sm text-gray-500">Discover a New Level of Shopping Excellence with Jexprez: Quality, Speed, and Unbeatable Discounts!</p>
+      <Link href={'/'}><div className="font-Alegreya relative text-2xl sm:text-4xl text-white pb-2 flex justify-center items-center">
+          <p className="text-lightred">K</p><p className="text-base text-black sm:text-2xl mt-1">ashmirizon</p>
+          <Image className="hidden sm:block w-20 absolute top-4 left-20 ml-1 py-1" src={curveImg} width={500} height={500} alt="logo"/>
+        </div></Link>
+        <p className="mt-2 text-sm text-gray-500">Discover a New Level of Shopping Excellence with Kashmirizon: Quality, Speed, and Unbeatable Discounts!</p>
       </div>
 
       <div className="flex-grow flex flex-wrap justify-center md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center ">
@@ -38,11 +41,11 @@ const Footer = () => {
           <h2 className="title-font font-medium text-gray-900 tracking-widest text-base mb-3">CUSTOMER SERVICE</h2>
           <nav className="list-none mb-10">
             <li>
-              <Link href={'/category/Grocery'} className="text-gray-600 text-sm hover:text-gray-800">Track Your Order</Link>
+              <Link href={'/trackorder'} className="text-gray-600 text-sm hover:text-gray-800">Track Your Order</Link>
             </li>
           
             <li>
-            <Link href={'/privacypolicy'} className="text-gray-600 text-sm hover:text-gray-800">Return Policy</Link>
+            <Link href={'/returnpolicy'} className="text-gray-600 text-sm hover:text-gray-800">Return Policy</Link>
             </li>
             <li>
             <Link href={'/privacypolicy'} className="text-gray-600 text-sm hover:text-gray-800">FAQs</Link>
@@ -65,14 +68,12 @@ const Footer = () => {
           <h2 className="title-font font-medium text-gray-900 tracking-widest text-base mb-3">Contact</h2>
           <nav className="list-none mb-10">
             <li>
-              <Link href={'/privacypolicy'} className="text-gray-600 text-sm hover:text-gray-800">About Us</Link>
+              <Link href={'/aboutus'} className="text-gray-600 text-sm hover:text-gray-800">About Us</Link>
             </li>
             <li>
-              <Link href={'/privacypolicy'} className="text-gray-600 text-sm hover:text-gray-800">FAQs</Link>
+              <Link href={'/contact'} className="text-gray-600 text-sm hover:text-gray-800">Contact Us</Link>
             </li>
-            <li>
-              <Link href={'/privacypolicy'} className="text-gray-600 text-sm hover:text-gray-800">Help</Link>
-            </li>
+           
           
           </nav>
         </div>
@@ -81,7 +82,7 @@ const Footer = () => {
     </div>
     <div className="bg-gray-100">
       <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-        <p className="text-gray-500 text-sm text-center sm:text-left">© 2023 JExprez 
+        <p className="text-gray-500 text-sm text-center sm:text-left">© 2023 Kashmirizon 
         </p>
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
           <a className="text-gray-500">

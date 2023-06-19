@@ -208,7 +208,7 @@ const Information = ({
   };
   return (
     <div className="py-8 px-2 ">
-      <Head><title>{`Checkout Information - JExprez`}</title></Head>
+      <Head><title>{`Checkout Information - Kashmirizon`}</title></Head>
       <div className="flex flex-col lg:flex-row justify-center">
         {/* shipping address */}
         <div className="flex-1 flex flex-col space-y-8 items-center font-Roboto lg:border-r border-gray-500 ">

@@ -4,12 +4,12 @@ const PrivacyPolicyPage = () => {
   return (
     <>
       <Head>
-        <title>JExprez - Privacy Policy</title>
+        <title>Kashmirizon - Privacy Policy</title>
       </Head>
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
         <p className="mb-4">
-          At JExprez, we value and respect your privacy. This Privacy Policy
+          At Kashmirizon, we value and respect your privacy. This Privacy Policy
           explains how we collect, use, and protect your personal information
           when you interact with our website.
         </p>
@@ -71,7 +71,7 @@ const PrivacyPolicyPage = () => {
         <h2 className="text-2xl font-bold mt-8 mb-4">8. Contact Us</h2>
         <p className="mb-4">
           If you have any questions or concerns regarding this Privacy Policy,
-          please contact us at privacy@jexprez.com.
+          please contact us at privacy@Kashmirizon.com.
         </p>
       </div>
     </>

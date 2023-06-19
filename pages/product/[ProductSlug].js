@@ -86,7 +86,7 @@ const handleBuyNow = ()=>{
 
   return (
     <div className="text-gray-600 body-font overflow-hidden">
-      <Head><title>{`${productOverView[0].title} - JExprez`}</title></Head>
+      <Head><title>{`${productOverView[0].title} - Kashmirizon`}</title></Head>
       <div className="flex justify-center lg:justify-start  flex-wrap p-8">
         <div className="flex flex-wrap flex-row sm:flex-col justify-center sm:justify-start items-center">
           {imgArray.map((imgUrl, index) => (
@@ -206,7 +206,7 @@ const handleBuyNow = ()=>{
                 }}
                 className="flex items-center text-white justify-between p-2  rounded"
               >
-                <BsShop /> Why Shop At JExprez?{" "}
+                <BsShop /> Why Shop At Kashmirizon?{" "}
                 <BsFillCaretDownFill
                   className={`${
                     whyShopClicked ? "rotate-180" : "rotate-0"
@@ -219,7 +219,7 @@ const handleBuyNow = ()=>{
                 } ease-in-out transition-all delay-100`}
               >
                 <p className="p-2">
-                Unparalleled shopping. Top-notch products. Unbeatable prices. Trendy fashion to cutting-edge electronics. Enjoy seamless checkout, swift delivery. Exceptional service, prompt assistance. Exclusive discounts, maximize savings. Trust Jexprez for quality, affordability, impeccable service. Discover shopping perfection, where dreams come true.
+                Unparalleled shopping. Top-notch products. Unbeatable prices. Trendy fashion to cutting-edge electronics. Enjoy seamless checkout, swift delivery. Exceptional service, prompt assistance. Exclusive discounts, maximize savings. Trust Kashmirizon for quality, affordability, impeccable service. Discover shopping perfection, where dreams come true.
                 </p>
               </div>
             </div>

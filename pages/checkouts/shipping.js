@@ -33,6 +33,157 @@ const Shipping = ({
   const [isLoading ,setIsLoading] = useState(false);
 
 
+const sendUserEmail = async (fromEmail,toEmail,tprice) =>{
+  const html = `<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Order Confirmation - Kashmirizon</title>
+      <style>
+          /* Add your custom CSS styles here */
+          body {
+              font-family: Arial, sans-serif;
+              color: #333;
+          }
+          .container {
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+              border: 1px solid #ccc;
+          }
+          .header {
+              text-align: center;
+              margin-bottom: 20px;
+          }
+          .header h1 {
+              font-size: 24px;
+              margin: 0;
+          }
+          .content {
+              margin-bottom: 20px;
+          }
+          .content p {
+              margin: 10px 0;
+          }
+          .footer {
+              text-align: center;
+          }
+      </style>
+  </head>
+  <body>
+      <div class="container">
+          <div class="header">
+              <h1>Order Confirmation</h1>
+          </div>
+          <div class="content">
+              <p>Dear ${nameEntry},</p>
+              <p>Thank you for placing your order with us. We are pleased to confirm that your order has been received and is currently being processed.</p>
+              <p>Order Details:</p>
+              <ul>
+                  <li>Order Number: ${generateOrderId}</li>
+                  <li>Order Date: ${new Date().toLocaleDateString()}</li>
+                  <li>Total Amount: ₹${tprice}</li>
+                  <li>Shipping Address: ${streetAddress}, ${apartmentAddress}, ${city}, ${pincode}, ${state}, ${country}</li>
+              </ul>
+              <p>If you have any questions or concerns regarding your order, please feel free to contact our customer support team at [shoyeab.ecom@gmail.com].</p>
+              <p>Thank you for choosing us.</p>
+          </div>
+          <div class="footer">
+              <p>Best Regards,</p>
+              <p>Kashmirizon</p>
+          </div>
+      </div>
+  </body>
+  </html>
+  `
+
+  const response = await fetch("/api/sendEmail", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email:fromEmail, subject:"Order Confirmation - Kashmirizon", html ,toEmail:toEmail}),
+  });
+
+  if (response.ok) {
+  } else {
+   console.error("error orccured")
+  }
+}
+const sendEmailToSeller = async (fromEmail,toEmail,tprice) =>{
+  const html = `<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Order Confirmation - Kashmirizon</title>
+      <style>
+          /* Add your custom CSS styles here */
+          body {
+              font-family: Arial, sans-serif;
+              color: #333;
+          }
+          .container {
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+              border: 1px solid #ccc;
+          }
+          .header {
+              text-align: center;
+              margin-bottom: 20px;
+          }
+          .header h1 {
+              font-size: 24px;
+              margin: 0;
+          }
+          .content {
+              margin-bottom: 20px;
+          }
+          .content p {
+              margin: 10px 0;
+          }
+          .footer {
+              text-align: center;
+          }
+      </style>
+  </head>
+  <body>
+      <div class="container">
+          <div class="header">
+              <h1>New Order Notification</h1>
+          </div>
+          <div class="content">
+              <p>Dear Seller,</p>
+              <p>You have received a new order from a customer. Please review the order details below:</p>
+              <p>Order Details:</p>
+              <ul>
+                  <li>Order Number: ${generateOrderId}</li>
+                  <li>Order Date: ${new Date().toLocaleDateString()}</li>
+                  <li>Email: ${fromEmail}</li>
+                  <li>Total Amount: ₹${tprice}</li>
+                  <li>Shipping Address: ${streetAddress}, ${apartmentAddress}, ${city}, ${pincode}, ${state}, ${country}</li>
+              </ul>
+              <p>Thank you for your attention.</p>
+          </div>
+      </div>
+  </body>
+  </html>
+  `
+
+  const response = await fetch("/api/sendEmail", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email:fromEmail, subject:"Order Confirmation - Kashmirizon", html ,toEmail:toEmail}),
+  });
+
+  if (response.ok) {
+  } else {
+   console.error("error orccured")
+  }
+}
+
 
   const sendCartItemsToDb = async () => {
     setIsLoading(true)
@@ -63,9 +214,10 @@ const Shipping = ({
         data: orderData,
       });
 
-      console.log("Data sent successfully:", response.data);
       setIsLoading(false);
       router.push(`../order/success?orderId=${generateOrderId}`)
+      sendUserEmail('shoyeab.ecom@gmail.com',emailId,totalPriceOfCartItems) // sending email to the customer
+      sendEmailToSeller(emailId,'shoyeab.ecom@gmail.com',totalPriceOfCartItems) // sending email to seller
       setCartItems([])
       localStorage.removeItem('cart')
       // Handle success (e.g., show a success message to the user)
@@ -107,7 +259,8 @@ const Shipping = ({
       console.log("Data sent successfully:", response.data);
       router.push(`../order/success?orderId=${generateOrderId}`)
       setIsLoading(false);
-      
+      sendUserEmail('shoyeab.ecom@gmail.com',emailId,rest.productPrice*rest.productQuantity) // sending email to the customer
+      sendEmailToSeller(emailId,'shoyeab.ecom@gmail.com',rest.productPrice*rest.productQuantity) // sending email to seller
       // Handle success (e.g., show a success message to the user)
     } catch (error) {
       console.error(error);
@@ -173,7 +326,7 @@ const Shipping = ({
 
   return (
     <div>
-       <Head><title>{`Proceed to Checkout - JExprez`}</title></Head>
+       <Head><title>{`Proceed to Checkout - Kashmirizon`}</title></Head>
       {isLoading && (
         <div
           style={{

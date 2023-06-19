@@ -10,7 +10,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/router";
-import logo2 from '../public/images/logo2.png'
+import curveImg from '../public/images/curveImg.png'
 import styles from '../styles/home.module.css'
 
 
@@ -64,10 +64,10 @@ const handleKeyDown = (e)=>{
   return (
     <nav className={` ${styles.navBarBackgroundImg} w-full shadow-md sticky top-0 left-0 z-50 h-full py-2 sm:h-[65px]  flex items-center p-2`}>
       <div className="w-full flex flex-col sm:flex-row justify-between items-center  px-2 sm:px-10">
-        <div className="font-Eczar text-4xl sm:text-5xl text-white pb-2 flex justify-center items-center">
-          <p className=" text-lightred">J<span className="text-white text-2xl sm:text-3xl">Exprez</span></p>
-          <Image className="w-6 sm:w-8  ml-2" src={logo2} width={500} height={500} alt="JExprez"/>
-        </div>
+      <Link href={'/'}><div className="font-Alegreya relative text-2xl sm:text-4xl text-white pb-2 flex justify-center items-center">
+          <p className="text-lightred">K</p><p className="text-base sm:text-2xl mt-1">ashmirizon</p>
+          <Image className="hidden sm:block w-20 absolute top-4 left-7 py-1" src={curveImg} width={500} height={500} alt="logo"/>
+        </div></Link>
 
         <div className="flex my-1">
           <div className="flex ml-[15px] px-2 py-1 shadow-sm border-white shadow-white bg-white  rounded-2xl ">

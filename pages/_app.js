@@ -123,7 +123,7 @@ export default function App({ Component, pageProps, session }) {
   return (
     <>
      <Head>
-        <title>JExprez</title>
+        <title>Kashmirizon</title>
         <link rel="shortcut icon" href="/images/logo.png" />
       </Head>
       <SessionProvider session={session}>
