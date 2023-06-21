@@ -392,33 +392,33 @@ export default function Home({
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 px-4 sm:px-10 text-customrosered">
             <div className="rounded-lg h-[150px] shadow-lg border flex flex-col items-center justify-center bg-gradient-to-r from-rose-500 to-rose-600 text-white font-Roboto">
               <div className="bg-white p-4 rounded-full shadow-md">
-                <RiLuggageCartLine className="text-2xl text-rose-600" />
+                <RiLuggageCartLine className="text-xl text-rose-600" />
               </div>
-              <p className="capitalize py-2 font-bold text-xl text-rose-100">
+              <p className="capitalize py-2 font-bold text-base text-rose-100">
                 Premium Quality Product
               </p>
             </div>
             <div className="rounded-lg h-[150px] shadow-lg border flex flex-col items-center justify-center bg-gradient-to-r from-rose-500 to-rose-600 text-white font-Roboto">
               <div className="bg-white p-4 rounded-full shadow-md">
-                <TbTruckDelivery className="text-2xl text-rose-600" />
+                <TbTruckDelivery className="text-xl text-rose-600" />
               </div>
-              <p className="capitalize py-2 font-bold text-xl text-rose-100">
+              <p className="capitalize py-2 font-bold text-base text-rose-100">
                 Free Shipping for above ₹250
               </p>
             </div>
             <div className="rounded-lg h-[150px] shadow-lg border flex flex-col items-center justify-center bg-gradient-to-r from-rose-500 to-rose-600 text-white font-Roboto">
               <div className="bg-white p-4 rounded-full shadow-md">
-                <BiMap className="text-2xl text-rose-600" />
+                <BiMap className="text-xl text-rose-600" />
               </div>
-              <p className="capitalize py-2 font-bold text-xl text-rose-100">
+              <p className="capitalize py-2 font-bold text-base text-rose-100">
                 Order Tracking
               </p>
             </div>
             <div className="rounded-lg h-[150px] shadow-lg border flex flex-col items-center justify-center bg-gradient-to-r from-rose-500 to-rose-600 text-white font-Roboto">
               <div className="bg-white p-4 rounded-full shadow-md">
-                <MdOutlineLocalOffer className="text-2xl text-rose-600" />
+                <MdOutlineLocalOffer className="text-xl text-rose-600" />
               </div>
-              <p className="capitalize py-2 font-bold text-xl text-rose-100">
+              <p className="capitalize py-2 font-bold text-base text-rose-100">
                 Regular Discounts
               </p>
             </div>
