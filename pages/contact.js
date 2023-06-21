@@ -48,7 +48,7 @@ function ContactPage({ toast }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, subject:"Customer Query", html ,toEmail:"shoyeab.ecom@gmail.com"}),
+      body: JSON.stringify({ email, subject:"Customer Query", html ,toEmail:"kashmirizon@gmail.com"}),
     });
 
     if (response.ok) {

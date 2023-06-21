@@ -7,7 +7,7 @@ export default function handler(req, res) {
       port: 587,
       secure: false,
       auth: {
-        user: "shoyeab.ecom@gmail.com",
+        user: "kashmirizon@gmail.com",
         pass: process.env.GMAIL_PASS,
       },
       tls: {

@@ -85,7 +85,7 @@ const sendUserEmail = async (fromEmail,toEmail,tprice) =>{
                   <li>Total Amount: ₹${tprice}</li>
                   <li>Shipping Address: ${streetAddress}, ${apartmentAddress}, ${city}, ${pincode}, ${state}, ${country}</li>
               </ul>
-              <p>If you have any questions or concerns regarding your order, please feel free to contact our customer support team at [shoyeab.ecom@gmail.com].</p>
+              <p>If you have any questions or concerns regarding your order, please feel free to contact our customer support team at [kashmirizon@gmail.com].</p>
               <p>Thank you for choosing us.</p>
           </div>
           <div class="footer">
@@ -216,8 +216,8 @@ const sendEmailToSeller = async (fromEmail,toEmail,tprice) =>{
 
       setIsLoading(false);
       router.push(`../order/success?orderId=${generateOrderId}`)
-      sendUserEmail('shoyeab.ecom@gmail.com',emailId,totalPriceOfCartItems) // sending email to the customer
-      sendEmailToSeller(emailId,'shoyeab.ecom@gmail.com',totalPriceOfCartItems) // sending email to seller
+      sendUserEmail('kashmirizon@gmail.com',emailId,totalPriceOfCartItems) // sending email to the customer
+      sendEmailToSeller(emailId,'kashmirizon@gmail.com',totalPriceOfCartItems) // sending email to seller
       setCartItems([])
       localStorage.removeItem('cart')
       // Handle success (e.g., show a success message to the user)
@@ -259,8 +259,8 @@ const sendEmailToSeller = async (fromEmail,toEmail,tprice) =>{
       console.log("Data sent successfully:", response.data);
       router.push(`../order/success?orderId=${generateOrderId}`)
       setIsLoading(false);
-      sendUserEmail('shoyeab.ecom@gmail.com',emailId,rest.productPrice*rest.productQuantity) // sending email to the customer
-      sendEmailToSeller(emailId,'shoyeab.ecom@gmail.com',rest.productPrice*rest.productQuantity) // sending email to seller
+      sendUserEmail('kashmirizon@gmail.com',emailId,rest.productPrice*rest.productQuantity) // sending email to the customer
+      sendEmailToSeller(emailId,'kashmirizon@gmail.com',rest.productPrice*rest.productQuantity) // sending email to seller
       // Handle success (e.g., show a success message to the user)
     } catch (error) {
       console.error(error);

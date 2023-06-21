@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import {RiLuggageCartLine} from 'react-icons/ri'
-import {TbTruckDelivery} from 'react-icons/tb'
-import {BiMap} from 'react-icons/bi'
-import {MdOutlineLocalOffer} from 'react-icons/md'
+import { RiLuggageCartLine } from "react-icons/ri";
+import { TbTruckDelivery } from "react-icons/tb";
+import { BiMap } from "react-icons/bi";
+import { MdOutlineLocalOffer } from "react-icons/md";
 import {
   getAllBannerImages,
   getBottomBannerImages,
@@ -22,6 +22,8 @@ import styles from "../styles/home.module.css";
 // Import Swiper styles
 import "swiper/css";
 import { useRouter } from "next/router";
+
+import whatsappLogo from '../public/images/whatsappLogo.gif'
 
 const TopPrducts = ({
   id,
@@ -45,7 +47,7 @@ const TopPrducts = ({
     <div
       className={`${styles.product_wrapper_class}  w-[10rem] mt-4 h-[16rem] sm:w-[14rem] sm:m-4 lg:m-8 sm:h-[22rem] shadow-shadow2 rounded-lg sm:rounded-xl border px-2 py-2 sm:py-4 relative overflow-hidden flex items-center flex-col cursor-pointer bg-white`}
     >
-     <Link href={`/product/${slug}?id=${id}`}>
+      <Link href={`/product/${slug}?id=${id}`}>
         <div>
           <div className="  w-[9rem] h-[10rem] mr-auto sm:w-[12rem] sm:h-[14rem] ml-auto rounded-md  overflow-hidden  ">
             {/* image */}
@@ -58,43 +60,47 @@ const TopPrducts = ({
             />
           </div>
         </div>
-          {/* title */}
-          <div className="mt-2 mb-1">
-            <h4 className=" text-xs truncate  text-ellipsis sm:text-sm capitalize  font-Roboto text-black w-[9rem] sm:w-[14rem] font-bold break-words text-center">
-              {title}
-            </h4>
-          </div>
+        {/* title */}
+        <div className="mt-2 mb-1">
+          <h4 className=" text-xs truncate  text-ellipsis sm:text-sm capitalize  font-Roboto text-black w-[9rem] sm:w-[14rem] font-bold break-words text-center">
+            {title}
+          </h4>
+        </div>
       </Link>
-      
+
       <div>
         {/* price */}
         <div className="flex w-[9rem] sm:w-[12rem] items-center justify-around font-Robot0 my-1">
-          <p className="text-green-600 text-sm sm:text-base font-bold">₹{price}</p>
-          <strike className=" text-sm sm:text-base text-red-500 ">₹{actualPrice}</strike>
+          <p className="text-green-600 text-sm sm:text-base font-bold">
+            ₹{price}
+          </p>
+          <strike className=" text-sm sm:text-base text-red-500 ">
+            ₹{actualPrice}
+          </strike>
         </div>
         <button
-            onClick={() => {
-              stock === "available" &&
-                (addToCart({
-                  productId: id,
-                  _key: id,
-                  productName: title,
-                  productPrice: price,
-                  imageUrl: imageUrl,
-                }),
-                toast.success(`Item added to cart successfully!`,{
-                  position: toast.POSITION.BOTTOM_CENTER,
-                  icon: ({theme, type}) =>  <IoMdCart/>
-                }));
-            }}
-            className={`w-full sm:text-sm py-1 text-xs font-Roboto rounded-lg  ${
-              stock == "outOfStock"
-                ? "text-gray-400 border "
-                : "hover:bg-lightredhover bg-lightred text-white"
-            }`}
-          >
-            Add To Cart
-          </button>
+          onClick={() => {
+            stock === "available" &&
+              (addToCart({
+                productId: id,
+                _key: id,
+                productName: title,
+                productPrice: price,
+                imageUrl: imageUrl,
+              }),
+              toast.success(`Item added to cart successfully!`, {
+                position: toast.POSITION.BOTTOM_CENTER,
+                icon: ({ theme, type }) => <IoMdCart />,
+              }));
+          }}
+          className={`w-full sm:text-sm py-1 text-xs font-Roboto rounded-lg  ${
+            stock == "outOfStock"
+              ? "text-gray-400 border "
+              : "hover:bg-lightredhover bg-lightred text-white"
+          }`}
+        >
+          Add To Cart
+        </button>
       </div>
 
       <div
@@ -154,42 +160,46 @@ const DealOfTheDay = ({
             />
           </div>
         </div>
-          {/* title */}
-          <div className="mt-2 mb-1">
-            <h4 className=" text-xs truncate  text-ellipsis sm:text-sm capitalize  font-Roboto text-black w-[9rem] sm:w-[14rem] font-bold break-words text-center">
-              {title}
-            </h4>
-          </div>
+        {/* title */}
+        <div className="mt-2 mb-1">
+          <h4 className=" text-xs truncate  text-ellipsis sm:text-sm capitalize  font-Roboto text-black w-[9rem] sm:w-[14rem] font-bold break-words text-center">
+            {title}
+          </h4>
+        </div>
       </Link>
       <div>
         {/* price */}
         <div className="flex w-[9rem] sm:w-[12rem] items-center justify-around font-Robot0 my-1">
-          <p className="text-green-600 text-sm sm:text-base font-bold">₹{price}</p>
-          <strike className=" text-sm sm:text-base text-red-500 ">₹{actualPrice}</strike>
+          <p className="text-green-600 text-sm sm:text-base font-bold">
+            ₹{price}
+          </p>
+          <strike className=" text-sm sm:text-base text-red-500 ">
+            ₹{actualPrice}
+          </strike>
         </div>
         <button
-            onClick={() => {
-              stock === "available" &&
-                (addToCart({
-                  productId: id,
-                  _key: id,
-                  productName: title,
-                  productPrice: price,
-                  imageUrl: imageUrl,
-                }),
-                toast.success(`Item added to cart successfully!`,{
-                  position: toast.POSITION.BOTTOM_CENTER,
-                  icon: ({theme, type}) =>  <IoMdCart/>
-                }));
-            }}
-            className={`w-full sm:text-sm py-1 text-xs font-Roboto rounded-lg  ${
-              stock == "outOfStock"
-                ? "text-gray-400 border "
-                : "hover:bg-lightredhover bg-lightred text-white"
-            }`}
-          >
-            Add To Cart
-          </button>
+          onClick={() => {
+            stock === "available" &&
+              (addToCart({
+                productId: id,
+                _key: id,
+                productName: title,
+                productPrice: price,
+                imageUrl: imageUrl,
+              }),
+              toast.success(`Item added to cart successfully!`, {
+                position: toast.POSITION.BOTTOM_CENTER,
+                icon: ({ theme, type }) => <IoMdCart />,
+              }));
+          }}
+          className={`w-full sm:text-sm py-1 text-xs font-Roboto rounded-lg  ${
+            stock == "outOfStock"
+              ? "text-gray-400 border "
+              : "hover:bg-lightredhover bg-lightred text-white"
+          }`}
+        >
+          Add To Cart
+        </button>
       </div>
       <div
         className={`p-1 text-center top-0 right-0 text-white bg-lightred absolute z-[2] w-[45px] sm:w-[100px] rounded-bl-xl`}
@@ -216,7 +226,7 @@ export default function Home({
   addToCart,
   toast,
   bannerImages,
-  bottomBanner
+  bottomBanner,
 }) {
   SwiperCore.use([Autoplay]);
   return (
@@ -225,9 +235,8 @@ export default function Home({
         <title>
           Welcome to Kashmirizon - Your One-Stop Online Shopping Destination
         </title>
-       
       </Head>
-      <main className={`p-1`}>
+      <main className={`p-1 relative`}>
         <div className="home_container lg:flex lg:justify-center items-center lg:px-4 lg:mt-2">
           <div className="slider_container">
             <Swiper
@@ -381,24 +390,38 @@ export default function Home({
         {/* ---------------------------section 3------------------------------------------ */}
         <div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 px-4 sm:px-10 text-customrosered">
-            <div className=" rounded-lg h-[150px] shadow-md border flex flex-col items-center justify-center font-Roboto">
-              <div className="bg-rose-200 p-3 rounded-full"><RiLuggageCartLine className="text-3xl "/></div>
-              <p className="capitalize py-2  font-bold">premium quality product</p>
+            <div className="rounded-lg h-[150px] shadow-lg border flex flex-col items-center justify-center bg-gradient-to-r from-rose-500 to-rose-600 text-white font-Roboto">
+              <div className="bg-white p-4 rounded-full shadow-md">
+                <RiLuggageCartLine className="text-2xl text-rose-600" />
+              </div>
+              <p className="capitalize py-2 font-bold text-xl text-rose-100">
+                Premium Quality Product
+              </p>
             </div>
-            <div className=" rounded-lg h-[150px] shadow-md border flex flex-col items-center justify-center font-Roboto">
-            <div className="bg-rose-200 p-3 rounded-full"><TbTruckDelivery className="text-3xl "/></div>
-              <p className="capitalize pt-2  font-bold">Express Delivery</p>
-              <p className="capitalize text-xs text-customrosered">Free Shipping for above ₹250</p>
+            <div className="rounded-lg h-[150px] shadow-lg border flex flex-col items-center justify-center bg-gradient-to-r from-rose-500 to-rose-600 text-white font-Roboto">
+              <div className="bg-white p-4 rounded-full shadow-md">
+                <TbTruckDelivery className="text-2xl text-rose-600" />
+              </div>
+              <p className="capitalize py-2 font-bold text-xl text-rose-100">
+                Free Shipping for above ₹250
+              </p>
             </div>
-            <div className=" rounded-lg h-[150px] shadow-md border flex flex-col items-center justify-center font-Roboto">
-            <div className="bg-rose-200 p-3 rounded-full"><BiMap className="text-3xl"/></div>
-              <p className="capitalize py-2  font-bold">Order Tracking</p>
+            <div className="rounded-lg h-[150px] shadow-lg border flex flex-col items-center justify-center bg-gradient-to-r from-rose-500 to-rose-600 text-white font-Roboto">
+              <div className="bg-white p-4 rounded-full shadow-md">
+                <BiMap className="text-2xl text-rose-600" />
+              </div>
+              <p className="capitalize py-2 font-bold text-xl text-rose-100">
+                Order Tracking
+              </p>
             </div>
-            <div className=" rounded-lg h-[150px] shadow-md border flex flex-col items-center justify-center font-Roboto">
-            <div className="bg-rose-200 p-3 rounded-full"><MdOutlineLocalOffer className="text-3xl "/></div>
-              <p className="capitalize py-2  font-bold">Regular Discounts</p>
+            <div className="rounded-lg h-[150px] shadow-lg border flex flex-col items-center justify-center bg-gradient-to-r from-rose-500 to-rose-600 text-white font-Roboto">
+              <div className="bg-white p-4 rounded-full shadow-md">
+                <MdOutlineLocalOffer className="text-2xl text-rose-600" />
+              </div>
+              <p className="capitalize py-2 font-bold text-xl text-rose-100">
+                Regular Discounts
+              </p>
             </div>
-           
           </div>
         </div>
       </main>
@@ -419,7 +442,7 @@ export async function getServerSideProps(context) {
       topProducts,
       dealOFTheDay,
       bannerImages,
-      bottomBanner
+      bottomBanner,
     },
   };
 }

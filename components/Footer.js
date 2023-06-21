@@ -73,6 +73,9 @@ const Footer = () => {
             <li>
               <Link href={'/contact'} className="text-gray-600 text-sm hover:text-gray-800">Contact Us</Link>
             </li>
+            <li>
+              <Link href={'https://wa.me/+919989308606'} target='_blank' className="text-gray-600 text-sm hover:text-gray-800">WhatsApp</Link>
+            </li>
            
           
           </nav>
